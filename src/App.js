@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import DisplaySongs from "./Components/DisplaySongs/DisplaySongs";
+import AddSong from "./Components/AddSong/AddSong";
 
 
 
@@ -23,6 +24,7 @@ function App() {
       <h3>NAV BAR GOES HERE</h3>
 
       <DisplaySongs parentEntries = {entries}/>
+      <AddSong/>
     
     </div>
   );
