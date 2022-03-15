@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 
 const AddSong = (props) => {
 
@@ -10,15 +10,18 @@ const AddSong = (props) => {
 
     function addSong(event){
         event.preventDefault();
-        let newEntry = {
+        let song = {
             title: title,
             artist: artist,
             album: album,
             release_date: release_date,
             genre: genre
         };
-        console.log(newEntry)
+        props.createSong(song)
+        console.log(song)
     }
+
+    
 
     return ( 
         <form onSubmit={addSong}>

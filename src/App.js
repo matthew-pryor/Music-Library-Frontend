@@ -1,19 +1,26 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import DisplaySongs from "./Components/DisplaySongs/DisplaySongs";
 import AddSong from "./Components/AddSong/AddSong";
-
+import axios from "axios";
 
 
 function App() {
 
-  const [entries, setEntries] = useState([{title: "Jack Sparrow", artist: "Lonely island", album: "Turleneck & Chain", release_date: "2017-01-01", genre: "comedy"}])
+  const [songs, setSongs] = useState([]);
 
-  function addNewSong(entry){
-    
-    let tempEntries = [...entries, entry];
-
-    setEntries(tempEntries)
-
+  useEffect(()=>{
+    getAllSongs();
+  }, [])
+  
+  async function createSong(prop){
+    let response = await axios.post('http://localhost:8000/api/music/', prop);
+    console.log(response.data)
+  }
+  
+  async function getAllSongs(prop){
+    let response = await axios.get('http://localhost:8000/api/music/');
+    setSongs(response.data)
+    console.log(response.data)
   }
 
   return (
@@ -23,11 +30,20 @@ function App() {
 
       <h3>NAV BAR GOES HERE</h3>
 
-      <DisplaySongs parentEntries = {entries}/>
-      <AddSong/>
+      <div>
+
+      <AddSong createSong={createSong}/>
+
+      </div>
     
     </div>
   );
 }
 
 export default App;
+
+//<DisplaySongs parentEntries = {entries}/>
+
+//<AddSong addNewSongProperty={addNewSong}/>
+
+//<button onClick={()=> addNewSong()}>Submit</button>
