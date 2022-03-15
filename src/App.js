@@ -34,6 +34,8 @@ function App() {
 
       <AddSong createSong={createSong}/>
 
+      <DisplaySongs parentEntries = {songs}/>
+
       </div>
     
     </div>
@@ -42,7 +44,7 @@ function App() {
 
 export default App;
 
-//<DisplaySongs parentEntries = {entries}/>
+//<DisplaySongs songs = {displaySongs}/>
 
 //<AddSong addNewSongProperty={addNewSong}/>
 
