@@ -1,12 +1,14 @@
 import React, {useState, useEffect} from "react";
 import DisplaySongs from "./Components/DisplaySongs/DisplaySongs";
 import AddSong from "./Components/AddSong/AddSong";
+import SearchBar from "./Components/SearchBar/SearchBar";
 import axios from "axios";
 
 
 function App() {
 
   const [songs, setSongs] = useState([]);
+  const [displaySongs, setDisplaySongs] = useState([])
 
   useEffect(()=>{
     getAllSongs();
@@ -20,8 +22,33 @@ function App() {
   async function getAllSongs(prop){
     let response = await axios.get('http://localhost:8000/api/music/');
     setSongs(response.data)
+    setDisplaySongs(response.data)
     console.log(response.data)
   }
+
+  const filterSongs = (searchSong) => {
+
+    let matchingSongs = songs.filter((song)=>{
+      if(song.title.toLowerCase().includes(searchSong.toLowerCase()) ||
+
+      song.artist.toLowerCase().includes(searchSong.toLowerCase()) ||
+
+      song.album.toLowerCase().includes(searchSong.toLowerCase()) ||
+
+      song.release_date.includes(searchSong) ||
+
+      song.genre.toLowerCase().includes(searchSong.toLowerCase())
+      
+      ){
+        return true
+      }
+      else{
+        return false
+      }
+    })
+
+    setDisplaySongs(matchingSongs)
+  };
 
   return (
     <div>
@@ -32,9 +59,11 @@ function App() {
 
       <div>
 
+      <SearchBar filterSongs={filterSongs}/>
+
       <AddSong createSong={createSong}/>
 
-      <DisplaySongs parentEntries = {songs}/>
+      <DisplaySongs parentEntries = {displaySongs}/>
 
       </div>
     
