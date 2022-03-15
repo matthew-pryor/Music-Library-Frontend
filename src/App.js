@@ -14,16 +14,30 @@ function App() {
     getAllSongs();
   }, [])
   
-  async function createSong(prop){
-    let response = await axios.post('http://localhost:8000/api/music/', prop);
-    console.log(response.data)
-  }
+
   
-  async function getAllSongs(prop){
+  async function getAllSongs(){
     let response = await axios.get('http://localhost:8000/api/music/');
     setSongs(response.data)
     setDisplaySongs(response.data)
     console.log(response.data)
+  }
+
+  async function createSong(prop){
+    let response = await axios.post('http://localhost:8000/api/music/', prop);
+    console.log(response.data)
+  }
+
+  async function updateSong(songData, songId){
+    let response = await axios.put(`http://localhost:8000/api/music/${songId}`, songData);
+    console.log(response.data)
+    await getAllSongs()
+  }
+
+  async function deleteSong(songId){
+    await axios.del(`http://localhost:8000/api/music/${songId}`);
+    console.log('deleted')
+    await getAllSongs()
   }
 
   const filterSongs = (searchSong) => {
