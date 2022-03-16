@@ -1,4 +1,4 @@
-*{padding: 0; margin: 0; box-sizing: border-box;}
+
 
 body{
     height: 900px;
@@ -14,6 +14,7 @@ header{
     position: relative;
     overflow: hidden;
     border-radius: 0 0 85% 85% / 30%;
+    padding-top: 300px;
 }
 
 header .overlay{

@@ -31,7 +31,7 @@ const AddSong = (props) => {
 
             <div class="title">Welcome to your MusicLibrary!</div>
 
-            <div class="subtitle">Find and store songs in your personal playlist!</div>
+            <div class="subtitle">Store songs in your personal playlist with the fields below!</div>
 
             <div >
 
@@ -63,7 +63,9 @@ const AddSong = (props) => {
 
             </div>
 
-            <button type="submit">Add Song</button>
+            <div>
+            <button type="text" class="submit">Add Song</button>
+            </div>
         </form>
         </div>
      );

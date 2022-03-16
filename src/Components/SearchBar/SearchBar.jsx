@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import axios from "axios";
+import "./SearchBar.css"
 
 
 const SearchBar = (props) => {
@@ -12,10 +12,16 @@ const SearchBar = (props) => {
     }
 
     return (
-        <div>
+        <div class="form">
             <form onSubmit={handleSubmit}>
-                <input value={searchSong} onChange={(entry)=>setSearchSong(entry.target.value)} type='text' placeholder="Search by title, aritst, etc..."></input>
-                <button type="submit">Search</button>
+                <div class="title"> </div>
+                <div class="subtitle">Search for songs inside your playlist here!</div>
+                <div>
+                <input class="input-container" value={searchSong} onChange={(entry)=>setSearchSong(entry.target.value)} type='text' placeholder="Search by title, aritst, etc..."></input>
+                </div>
+                <div>
+                <button type="text" class="submit">Search</button>
+                </div>
             </form>
         </div>
       );
