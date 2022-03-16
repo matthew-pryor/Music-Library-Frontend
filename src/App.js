@@ -75,11 +75,12 @@ function App() {
 
       <div>
 
-      <SearchBar filterSongs={filterSongs}/>
-
       <AddSong createSong={createSong}/>
 
+      <SearchBar filterSongs={filterSongs}/>
+
       <DisplaySongs parentEntries = {displaySongs}/>
+      
 
       </div>
     

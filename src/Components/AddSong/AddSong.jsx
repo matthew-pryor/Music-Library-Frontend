@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import "./AddSong.css"
 
 const AddSong = (props) => {
 
@@ -24,19 +25,47 @@ const AddSong = (props) => {
     
 
     return ( 
+
+        <div class="form">
         <form onSubmit={addSong}>
-            <label>Title</label>
-            <input type='text' value={title} onChange={(event) => setTitle(event.target.value)}/>
-            <label>Artist</label>
-            <input type='text' value={artist} onChange={(event) => setArtist(event.target.value)}/>
-            <label>Album</label>
-            <input type='text' value={album} onChange={(event) => setAlbum(event.target.value)}/>
-            <label>Release Date</label>
-            <input type='date' value={release_date} onChange={(event) => setReleaseDate(event.target.value)}/>
-            <label>Genre</label>
-            <input type='text' value={genre} onChange={(event) => setGenre(event.target.value)}/>
+
+            <div class="title">Welcome to your MusicLibrary!</div>
+
+            <div class="subtitle">Find and store songs in your personal playlist!</div>
+
+            <div >
+
+            <input class="input-container" type='text' placeholder="Enter Song Title" value={title} onChange={(event) => setTitle(event.target.value)}/>
+
+            </div>
+
+            <div>
+
+            <input class="input-container" type='text' placeholder="Enter Song Artist" value={artist} onChange={(event) => setArtist(event.target.value)}/>
+
+            </div>
+
+            <div>
+
+            <input class="input-container" type='text' placeholder="Enter Song Title" value={album} onChange={(event) => setAlbum(event.target.value)}/>
+
+            </div>
+
+            <div>
+
+            <input class="input-container" type='date' value={release_date} onChange={(event) => setReleaseDate(event.target.value)}/>
+
+            </div>
+
+            <div>
+            
+            <input class="input-container" type='text' placeholder="Enter Song Genre" value={genre} onChange={(event) => setGenre(event.target.value)}/>
+
+            </div>
+
             <button type="submit">Add Song</button>
         </form>
+        </div>
      );
 }
  
