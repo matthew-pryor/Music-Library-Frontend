@@ -1,12 +1,12 @@
-import React, {useState, useEffect} from "react";
+import "./DisplaySongs.css"
 
 const DisplaySongs = (props) => {
   
     return ( 
-    <div>
+    <div class = "form2">
         <table>
           <thead>
-            <tr>
+            <tr class = "subtitle">
               <th>Title</th>
               <th>Artist</th>
               <th>Album</th>
@@ -18,7 +18,7 @@ const DisplaySongs = (props) => {
           <tbody>
             {props.parentEntries.map((entry) => {
               return(
-                <tr>
+                <tr class = "subtitle">
                   <td>{entry.title}</td>
                   <td>{entry.artist}</td>
                   <td>{entry.album}</td>
