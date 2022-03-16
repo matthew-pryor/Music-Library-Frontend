@@ -47,7 +47,7 @@ const AddSong = (props) => {
 
             <div>
 
-            <input class="input-container" type='text' placeholder="Enter Song Title" value={album} onChange={(event) => setAlbum(event.target.value)}/>
+            <input class="input-container" type='text' placeholder="Enter Song Album" value={album} onChange={(event) => setAlbum(event.target.value)}/>
 
             </div>
 
