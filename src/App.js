@@ -3,6 +3,7 @@ import DisplaySongs from "./Components/DisplaySongs/DisplaySongs";
 import AddSong from "./Components/AddSong/AddSong";
 import SearchBar from "./Components/SearchBar/SearchBar";
 import axios from "axios";
+import "./App.css"
 
 
 function App() {
@@ -66,10 +67,11 @@ function App() {
 
   return (
     <div>
+      <header>
+      <h1>MusicLibrary</h1>
+      </header>
 
-      <h1>MUSIC LIBRARY WEBSITE HEADER GOES HERE</h1>
-
-      <h3>NAV BAR GOES HERE</h3>
+      <h3></h3>
 
       <div>
 
